@@ -9,11 +9,13 @@ const ToDo = () => {
       _id: 1,
       name: "Buy MacBook",
       isChecked: false,
+      styleToDoName: false,
     },
     {
       _id: 2,
       name: "Start reading a new book",
       isChecked: false,
+      styleToDoName: false,
     },
   ];
 
@@ -25,7 +27,7 @@ const ToDo = () => {
       e.preventDefault();
       setTodos((prev) => [
         ...prev,
-        { _id: todos.length + 1, name, isChecked: false },
+        { _id: todos.length + 1, name, isChecked: false, styleToDoName: false },
       ]);
       setName("");
     }
@@ -34,8 +36,8 @@ const ToDo = () => {
   const toggleCheckedToDo = (idx) => {
     const newArray = [].concat(todos);
     newArray[idx].isChecked = !newArray[idx].isChecked;
+    newArray[idx].styleToDoName = !newArray[idx].styleToDoName;
     setTodos(newArray);
-    console.log(newArray.isChecked);
   };
 
   const onDeleted = (id) => {
@@ -43,7 +45,7 @@ const ToDo = () => {
   };
 
   return (
-    <div>
+    <div className="wrapper">
       <h1 className="todo__tittle">ToDo App</h1>
       {todos &&
         todos.map((todo, idx) => (
@@ -52,6 +54,7 @@ const ToDo = () => {
             idx={idx}
             id={todo._id}
             name={todo.name}
+            styleToDoName={todo.styleToDoName}
             isChecked={todo.isChecked}
             toggleCheckedToDo={toggleCheckedToDo}
             onDeleted={onDeleted}
@@ -64,6 +67,7 @@ const ToDo = () => {
         onKeyPress={onKeyPressNameHandler}
         placeholder="New task..."
       />
+      <p className="by">By: Paramonov Nikita 🐣 </p>
     </div>
   );
 };

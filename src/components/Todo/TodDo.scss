@@ -5,16 +5,23 @@
   align-items: center;
   padding: 5px 10px;
   margin-bottom: 10px;
-  max-width: 50%;
+  min-width: 50%;
   margin: 0 auto 20px;
   box-shadow: 0 2px 5px rgb(0, 0, 0, 0.1);
   cursor: pointer;
-  & input {
-    cursor: pointer;
-  }
-  & .name {
-    font-size: 16px;
-    margin-left: 10px;
+  & label {
+    width: 100%;
+    & input {
+      cursor: pointer;
+    }
+    & .name {
+      font-size: 16px;
+      margin-left: 10px;
+    }
+    & .name_crossed_out {
+      text-decoration: line-through;
+      color: green;
+    }
   }
 }
 
@@ -45,4 +52,10 @@ input[type="text"] {
     color: red;
     transition: all 0.3s ease;
   }
+}
+
+.by {
+  position: absolute;
+  bottom: 0;
+  left: 10px;
 }

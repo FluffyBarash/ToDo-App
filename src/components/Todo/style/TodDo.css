@@ -9,18 +9,25 @@
           align-items: center;
   padding: 5px 10px;
   margin-bottom: 10px;
-  max-width: 50%;
+  min-width: 50%;
   margin: 0 auto 20px;
   -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
           box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   cursor: pointer;
 }
-.todo_item input {
+.todo_item label {
+  width: 100%;
+}
+.todo_item label input {
   cursor: pointer;
 }
-.todo_item .name {
+.todo_item label .name {
   font-size: 16px;
   margin-left: 10px;
+}
+.todo_item label .name_crossed_out {
+  text-decoration: line-through;
+  color: green;
 }
 
 input[type=text] {
@@ -53,4 +60,10 @@ input[type=text] {
   color: red;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
+}
+
+.by {
+  position: absolute;
+  bottom: 0;
+  left: 10px;
 }

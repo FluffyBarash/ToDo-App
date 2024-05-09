@@ -9,7 +9,14 @@ const ToDoItem = ({
   toggleCheckedToDo,
   onDeleted,
   id,
+  styleToDoName,
 }) => {
+  let styleName = "name";
+
+  if (styleToDoName === true) {
+    styleName += " name_crossed_out";
+  }
+
   return (
     <div className="todo_item">
       <label>
@@ -18,7 +25,7 @@ const ToDoItem = ({
           type="checkbox"
           onClick={() => toggleCheckedToDo(idx)}
         ></input>
-        <span className="name">{name}</span>
+        <span className={styleName}>{name}</span>
       </label>
       <FaRegTrashCan className="FaRegTrashCan" onClick={() => onDeleted(id)} />
     </div>
